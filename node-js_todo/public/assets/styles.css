@@ -1,0 +1,89 @@
+body{
+    background: #fff;
+    font-family: tahoma;
+    color: red;
+    border: 10px solid #8e9bff;
+}
+#sami{
+  margin-left: 95%;
+}
+ul,li,td{
+  margin: 0;
+  padding: 0;
+}
+.re, .button,.ul{
+background-color: #91cfd8;
+
+}
+.head
+{
+  text-align: center;
+  font-size: 35px;
+}
+#todo-table{
+    position: relative;
+    width: 95%;
+    background: #fff;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#todo-table form:after{
+    margin: 0;
+    content: '';
+    display: block;
+    clear: both;
+}
+
+input[type="text"]{
+    width: 50%;
+    padding: 20px;
+    background:#fff;
+    border: 1 solid black;
+    float: left;
+    font-size: 20px;
+    color: red;
+    margin-right: 10px;
+    text-align: center;
+}
+
+button{
+    padding: 20px;
+    width: 5%;
+    float: left;
+    background: #8e9bff;
+    border: 0;
+    box-sizing: border-box;
+    color: red;
+    cursor: pointer;
+    font-size: 20px;
+
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li, .ul{
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: arial;
+    font-size: 20px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+li:hover, .ul:hover{
+    text-decoration: line-through;
+    background: rgba(0,0,0,0.2);
+}
+
+h1{
+    background: url(/logo.png) no-repeat center;
+    margin-bottom: 0;
+    text-indent: -10000px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+       <div id="login_div" class="main-div">
+         <h3>Firebase Web login Examples</h3>
+         <p>  sami.moinul@gmail.com </p>
+         <p> password:123456</p>
+         <input type="email" id="email_field" placeholder="Email..">
+         <input type="password" id="password_field" placeholder="password">
+         <button onclick="login()">Login to Account</button>
+       </div>
+       <div id="user_div" class="loggedin-div">
+         <h3>Welcome User </h3>
+         <a href="http://localhost:3000/todo"> Please Select here</a>
+          <button onclick="logout()">Logout</button>
+       </div>
+
+
+<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAsuINKIRNkKwV-1x40mmRtm3omch2K5kk",
+    authDomain: "firenew-7b49a.firebaseapp.com",
+    databaseURL: "https://firenew-7b49a.firebaseio.com",
+    projectId: "firenew-7b49a",
+    storageBucket: "firenew-7b49a.appspot.com",
+    messagingSenderId: "560743633416"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="index.js"></script>
+  </body>
+</html>

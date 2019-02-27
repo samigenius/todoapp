@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Todo List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script >
+
+    $(document).ready(function(){
+
+      $('form').on('submit', function(){
+
+          var item = $('form input');
+          var todo = {item: item.val()};
+
+          $.ajax({
+            type: 'POST',
+            url: '/todo',
+            data: todo,
+            success: function(data){
+              //do something with the data via front-end framework
+              location.reload();
+            }
+          });
+
+          return false;
+
+      });
+
+      $('li').on('click', function(){
+          var item = $(this).text().replace(/ /g, "-");
+          $.ajax({
+            type: 'DELETE',
+            url: '/todo/' + item,
+            success: function(data){
+              //do something with the data via front-end framework
+              location.reload();
+            }
+          });
+      });
+
+    });
+
+
+
+    $(document).ready(function(){
+
+        var $checkboxes = $('#devel-generate-content-form td input[type="checkbox"]');
+
+        $checkboxes.change(function(){
+            var countCheckedCheckboxes = $checkboxes.filter(':checked').length;
+            $('#count-checked-checkboxes').text(countCheckedCheckboxes);
+        });
+
+    });
+
+
+    </script>﻿
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+       <div class="head">
+         TODO LIST
+
+       </div>
+    <div id="todo-table">
+<form>
+  <input type="text" name="item" placeholder="whats needs to be done ? " required/>
+  <button type="submit"> + </button>
+
+
+</form>
+  <ul>
+
+  <div class="content">
+  <form action="/admin/config/development/generate/content" method="post" id="devel-generate-content-form" accept-charset="UTF-8">
+  <div>
+  <table class="sticky-enabled">
+
+      <tbody>
+          <tr class="odd">
+            <% for(var i=0; i< todos.length; i++){ %>
+              <tr>
+
+
+              <td class="button">
+                  <div class="form-item form-type-checkbox form-item-node-types-forum">
+                      <input type="checkbox" id="edit-node-types-forum" name="node_types[forum]"
+                      value="forum" class="form-checkbox" />
+                  </div>
+              </td>
+              <td class="ul"> <%= todos[i].item %> <i  class="fa fa-edit" id="sami">&nbsp;</i> <i class="fa fa-times">&nbsp;</i>
+              </td>   </tr>
+
+              <%
+
+             } %>
+          </tr>
+  </tbody> </table>  </div>
+      <div class="count-checkboxes-wrapper">
+
+
+      <span id="count-checked-checkboxes">0</span> checked out of 5
+    </div>
+
+  </form>
+
+  </div>   </ul>
+    </div>
+
+  </body>
+  <div class="card">
+    <a href="http://localhost/firebase/"class="btn btn-primary"> <i class="fa fa-back">&nbsp; Back</a>
+  </div>
+
+</html>
